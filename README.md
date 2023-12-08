@@ -1,7 +1,7 @@
 # module-3-challenge
 
 # Discription 
-In this challenge, we are to use the skills we have learned from module 3 to create java script. 
+In this challenge, we are to use the skills we have learned from module 3 to generate a password using java script. 
 
 # User Story
 

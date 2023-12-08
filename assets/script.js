@@ -1,25 +1,36 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var number = ['1' , '2' , '3' , '4' , '5' , '6' ,] 
+var passwordText = document.querySelector('.passwordHolder');
+var number = ['1' , '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' , '10'] ;
+var lowerCaseLetters = ['a' , 'b' , 'c' , 'd' , 'e' , 'f', 'g' , 'h' , 'i' , 'j' , 'k' , 'l' , 'm' , 'n' , 'o' , 'p' , 'q' , 'r' , 's' , 't' , 'u' , 'v' , 'w' , 'x' , 'y' , 'z'];
+var upperCaseLetters = ['A' , 'B' , 'C' , 'D' , 'E' , 'F', 'G' , 'H' , 'I' , 'J' , 'K' , 'L' , 'M' , 'N' , 'O' , 'P' , 'Q' , 'R' , 'S' , 'T' , 'U' , 'V' , 'W' , 'X' , 'Y' , 'Z'];
+var specialCharacters = [' ' , '!' , '#' , '$' , '%' , '&' , '*' , '(' , ')' , '+' , ',' , '-' , '?' , '.' , '/' , '[' , ']' , '@' , '~'];
+
+var finalPassword = [];
+
+var userChoice = confirm('Use lower case?');
+var userChoice = confirm('Use upper case?');
+var userChoice = confirm('Use numbers?');
+var userChoice = confirm('Use special characters?');
 
 //Functiion to generate password
 function generatePassword(){
+  
+  var userChoice = prompt ("Please enter how many characters you would like in a your password.") ;
+  if (!userChoice < 8 || userChoice > 128){
+    alert("Password must be 8 to 128 characters long.");
+    return false;
+  }
+  
 
-    //Prompt user to select a desired password length
-    var passwordLength = prompt("How many characters do you want in you password?");
-    //Check if passwod in between 8 and 128 characters long 
-    var passwordLength = (passwordLength > 8 || passwordLength < 128)     
-    //Display alert and loop function until password length is met
-    alert("Password must be between 8 and 128 characters long.") ;
-    return; 
-    }if (passwordLength > 8 || passwordLength < 128);
-        console.log("Please select a number");
-
-
+}
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+  if (password){
+
+  }
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
