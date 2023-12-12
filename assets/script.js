@@ -1,28 +1,41 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var passwordText = document.querySelector('.passwordHolder');
 var number = ['1' , '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' , '10'] ;
 var lowerCaseLetters = ['a' , 'b' , 'c' , 'd' , 'e' , 'f', 'g' , 'h' , 'i' , 'j' , 'k' , 'l' , 'm' , 'n' , 'o' , 'p' , 'q' , 'r' , 's' , 't' , 'u' , 'v' , 'w' , 'x' , 'y' , 'z'];
 var upperCaseLetters = ['A' , 'B' , 'C' , 'D' , 'E' , 'F', 'G' , 'H' , 'I' , 'J' , 'K' , 'L' , 'M' , 'N' , 'O' , 'P' , 'Q' , 'R' , 'S' , 'T' , 'U' , 'V' , 'W' , 'X' , 'Y' , 'Z'];
 var specialCharacters = [' ' , '!' , '#' , '$' , '%' , '&' , '*' , '(' , ')' , '+' , ',' , '-' , '?' , '.' , '/' , '[' , ']' , '@' , '~'];
 
-var finalPassword = [];
+function generatePassword(){
 
-var userChoice = confirm('Use lower case?');
-var userChoice = confirm('Use upper case?');
-var userChoice = confirm('Use numbers?');
-var userChoice = confirm('Use special characters?');
+var userChoice = confirm("Use numbers?");
+var userChoice = confirm("Use upper case letter?");
+var userChoice = confirm("Use lower case letter?");
+var userChoice = confirm("Use special characters?");
+
+var password = [];
+
+var finalPassword = [];
+}
 
 //Functiion to generate password
 function generatePassword(){
   
   var userChoice = prompt ("Please enter how many characters you would like in a your password.") ;
+  generatePassword();
   if (!userChoice < 8 || userChoice > 128){
+    console.Log("Password must be 8 to 128 characters long.");
     alert("Password must be 8 to 128 characters long.");
-    return false;
+    return; 
   }
-  
 
+  if (userChoice > 8 || userChoice < 128){
+    console.Log("Please answer yes or no to the following questions!");
+      confirm("Use numbers?");
+      confirm("Use upper case letter?");
+      confirm("Use lower case letter?");
+      confirm("Use special characters?");
+    generatePassword();
+  }
 }
 
 // Write password to the #password input
