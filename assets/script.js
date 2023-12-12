@@ -6,37 +6,68 @@ var upperCaseLetters = ['A' , 'B' , 'C' , 'D' , 'E' , 'F', 'G' , 'H' , 'I' , 'J'
 var specialCharacters = [' ' , '!' , '#' , '$' , '%' , '&' , '*' , '(' , ')' , '+' , ',' , '-' , '?' , '.' , '/' , '[' , ']' , '@' , '~'];
 
 function generatePassword(){
+  
+  var finalCharacters = [];
 
-var userChoice = confirm("Use numbers?");
-var userChoice = confirm("Use upper case letter?");
-var userChoice = confirm("Use lower case letter?");
-var userChoice = confirm("Use special characters?");
-
-var password = [];
+var passwordLength = "Please enter how many characters you would like in a your password.";
+var userChoiceNumbers = confirm("Use numbers?");
+var userChoiceUpperLetter = confirm("Use upper case letter?");
+var userChoiceLowerLetter = confirm("Use lower case letter?");
+var userChoiceSpecialChars = confirm("Use special characters?");
 
 var finalPassword = [];
+
+
+var userChoice = prompt ("Please enter how many characters you would like in a your password.") ;
+  generatePassword();
+  if (!passwordLength || passwordLength < 8 || passwordLength > 128){
+    console.Log("Password must be 8 to 128 characters long.");
+    alert("Password must be 8 to 128 characters long.");
+    generatePassword();
+    return false;
+
+  }
+
 }
+
 
 //Functiion to generate password
 function generatePassword(){
-  
-  var userChoice = prompt ("Please enter how many characters you would like in a your password.") ;
-  generatePassword();
-  if (!userChoice < 8 || userChoice > 128){
-    console.Log("Password must be 8 to 128 characters long.");
-    alert("Password must be 8 to 128 characters long.");
-    return; 
-  }
 
-  if (userChoice > 8 || userChoice < 128){
-    console.Log("Please answer yes or no to the following questions!");
+  var userChoice = prompt ("Please enter how many characters you would like in a your password.") ;
       confirm("Use numbers?");
       confirm("Use upper case letter?");
       confirm("Use lower case letter?");
       confirm("Use special characters?");
     generatePassword();
+  
+  var userChoice = prompt ("Please enter how many characters you would like in a your password.") ;
+  if (!passwordLength || passwordLength < 8 || passwordLength > 128){
+    alert("Password must be 8 to 128 characters long.");
+    return false;
+  }
+
+  if (userChoiceLowerLetter) {
+    finalCharacters = finalCharacters.concat(lowerCaseLetters);
+  }
+
+  if (userChoiceUpperLetter) {
+    finalCharacters = finalCharacters.concat(upperCaseLetters);
+  }
+
+  if (userChoiceNumbers) {
+    finalCharacters = finalCharacters.concat(number);
+  }
+
+  if (userChoiceSpecialChars) {
+    finalCharacters = finalCharacters.concat(specialCharacters);
+  }
+  for (var i = 0; i < passwordLength; i++) {
+    var randomIndex = Math.floor(Math.random() * finalCharacters.length);
+    finalPassword.push(finalCharacters[randomIndex]);
   }
 }
+
 
 // Write password to the #password input
 function writePassword() {
